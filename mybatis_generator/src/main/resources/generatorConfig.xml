@@ -12,33 +12,29 @@
 	<context id="DB2Tables" targetRuntime="MyBatis3Simple">
 
 		<!-- 数据库的连接信息 -->
-		<jdbcConnection
-				driverClass="com.mysql.cj.jdbc.Driver"
-				connectionURL="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"
-				userId="root"
-				password="jc951753">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+		                connectionURL="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"
+		                userId="root"
+		                password="jc951753">
 		</jdbcConnection>
 
 		<!-- javaBean的生成策略-->
-		<javaModelGenerator
-				targetPackage="com.jingchao.mybatis.pojo"
-				targetProject=".\src\main\java">
+		<javaModelGenerator targetPackage="com.jingchao.mybatis.pojo"
+		                    targetProject=".\src\main\java">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 
 		<!-- SQL映射文件的生成策略 -->
-		<sqlMapGenerator
-				targetPackage="com.jingchao.mybatis.mapper"
-				targetProject=".\src\main\resources">
+		<sqlMapGenerator targetPackage="com.jingchao.mybatis.mapper"
+		                 targetProject=".\src\main\resources">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 
 		<!-- Mapper接口的生成策略 -->
-		<javaClientGenerator
-				type="XMLMAPPER"
-				targetPackage="com.jingchao.mybatis.mapper"
-				targetProject=".\src\main\java">
+		<javaClientGenerator type="XMLMAPPER"
+		                     targetPackage="com.jingchao.mybatis.mapper"
+		                     targetProject=".\src\main\java">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 
