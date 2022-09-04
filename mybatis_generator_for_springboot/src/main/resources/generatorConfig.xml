@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.jingchao.mybatis.utils.MyMapper"/>
+        </plugin>
+
+        <!-- 数据库的连接信息 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/ssm"
+                        userId="root"
+                        password="jc951753">
+        </jdbcConnection>
+
+        <!-- javaBean的生成策略 -->
+        <javaModelGenerator targetPackage="com.jingchao.mybatis.pojo"
+                            targetProject="src/main/java">
+        </javaModelGenerator>
+
+        <!-- SQL映射文件的生成策略 -->
+        <sqlMapGenerator targetPackage="com.jingchao.mybatis.mapper"
+                         targetProject="src/main/resources">
+        </sqlMapGenerator>
+
+        <!-- Mapper接口的生成策略 -->
+        <javaClientGenerator targetPackage="com.jingchao.mybatis.mapper"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER">
+        </javaClientGenerator>
+
+        <!--逆向分析表-->
+        <!-- tableName设置为*号，可以对应所有表 -->
+        <table tableName="t_emp"/>
+
+    </context>
+</generatorConfiguration>
+
